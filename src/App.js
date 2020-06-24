@@ -23,7 +23,12 @@ class App extends Component {
   }
 
   handleChange = (e) =>{
-    this.setState ({ searchString: e.target.value })
+    this.setState((prevState, prevProps) => {
+      return { searchString: e.target.value }
+    }, () => {
+      console.log(this.state);
+    })
+    // this.setState ({ searchString: e.target.value })
   }
 
   render(){
